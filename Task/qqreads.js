@@ -158,16 +158,16 @@ if ($.isNode()) {
     ).toLocaleString()}  =============\n`
   );
 } else {
-  qqreadbdArr.push($.getdata("qqreadbd"));
-  qqreadtimeurlArr.push($.getdata("qqreadtimeurl"));
-  qqreadtimehdArr.push($.getdata("qqreadtimehd"));
+  qqreadbdArr.push($.getdata("qqreadbd1"));
+  qqreadtimeurlArr.push($.getdata("qqreadtimeurl1"));
+  qqreadtimehdArr.push($.getdata("qqreadtimehd1"));
   // 根据boxjs中设置的额外账号数，添加存在的账号数据进行任务处理
   let qeCount = ($.getval('qeCount') || '1') - 0;
   for (let i = 2; i <= qeCount; i++) {
-    if ($.getdata(`qqreadbd${i}`)) {
-      qqreadbdArr.push($.getdata(`qqreadbd${i}`));
-      qqreadtimeurlArr.push($.getdata(`qqreadtimeurl${i}`));
-      qqreadtimehdArr.push($.getdata(`qqreadtimehd${i}`));
+    if ($.getdata(`qqreadbd1${i}`)) {
+      qqreadbdArr.push($.getdata(`qqreadbd1${i}`));
+      qqreadtimeurlArr.push($.getdata(`qqreadtimeurl1${i}`));
+      qqreadtimehdArr.push($.getdata(`qqreadtimehd1${i}`));
     }
   }
 }
@@ -180,22 +180,22 @@ $.done();
 function GetCookie() {
 
 if ($request && $request.url.indexOf("addReadTimeWithBid?") >= 0) {
-    const qqreadtimeurlVal = $request.url;
-    if (qqreadtimeurlVal) $.setdata(qqreadtimeurlVal, "qqreadtimeurl" + $.idx);
+    const qqreadtimeurlVal1 = $request.url;
+    if (qqreadtimeurlVal1) $.setdata(qqreadtimeurlVal1, "qqreadtimeurl" + $.idx);
     $.log(
       `[${jsname + $.idx}] 获取时长url: 成功,qqreadtimeurlVal: ${qqreadtimeurlVal}`
     );
  $.msg(jsname + $.idx, `获取时长url: 成功🎉`, ``);
-    const qqreadtimeheaderVal = JSON.stringify($request.headers);
-    if (qqreadtimeheaderVal) $.setdata(qqreadtimeheaderVal, "qqreadtimehd" + $.idx);
+    const qqreadtimeheaderVal1 = JSON.stringify($request.headers);
+    if (qqreadtimeheaderVal1) $.setdata(qqreadtimeheaderVal1, "qqreadtimehd" + $.idx);
     $.log(
       `[${jsname + $.idx}] 获取时长header: 成功,qqreadtimeheaderVal: ${qqreadtimeheaderVal}`
     );
     $.msg(jsname + $.idx, `获取时长header: 成功🎉`, ``);
   }
   else if ($request &&$request.body.indexOf("bookDetail_bottomBar_read_C")>=0&&$request.body.indexOf("bookRead_show_I")>=0&&$request.body.indexOf("topBar_left_back_C")<0&&$request.body.indexOf("bookRead_dropOut_shelfYes_C")<0){
-    const qqreadbodyVal = $request.body;
-    if (qqreadbodyVal) $.setdata(qqreadbodyVal, "qqreadbd" + $.idx);
+    const qqreadbodyVal1 = $request.body;
+    if (qqreadbodyVal1) $.setdata(qqreadbodyVal1, "qqreadbd" + $.idx);
     $.log(
       `[${jsname + $.idx}] 获取更新body: 成功,qqreadbodyVal: ${qqreadbodyVal}`
     );
